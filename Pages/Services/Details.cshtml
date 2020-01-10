@@ -1,0 +1,56 @@
+﻿@page
+@model MyPortfolio_MVC_CORE.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Service</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Service.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Service.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Service.Desc)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Service.Desc)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Service.Icon)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Service.Icon)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Service.CreatedTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Service.CreatedTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Service.DeletedTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Service.DeletedTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Service.Owner)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Service.Owner.Email)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Service.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

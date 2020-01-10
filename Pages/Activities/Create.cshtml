@@ -1,0 +1,49 @@
+﻿@page
+@model MyPortfolio_MVC_CORE.Pages.Activities.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Activity</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Activity.Name" class="control-label"></label>
+                <input asp-for="Activity.Name" class="form-control" />
+                <span asp-validation-for="Activity.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Activity.Desc" class="control-label"></label>
+                <input asp-for="Activity.Desc" class="form-control" />
+                <span asp-validation-for="Activity.Desc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Activity.CreatedTime" class="control-label"></label>
+                <input asp-for="Activity.CreatedTime" type="date" value="@DateTime.Now.ToString("yyyy-MM-dd")" min="2019-01-01" max="2030-12-31" class="form-control" />
+                <span asp-validation-for="Activity.CreatedTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Activity.OwnerId" class="control-label"></label>
+                <select asp-for="Activity.OwnerId" class="form-control" asp-items="ViewBag.OwnerId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
